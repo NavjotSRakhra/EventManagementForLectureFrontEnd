@@ -25,7 +25,15 @@ export class AppComponent {
         this.events = events;
       })
   }
+
   deleteEvent($event: EventData) {
     this.events.splice(this.events.indexOf($event), 1);
+  }
+
+  editEvent($event: EventData) {
+    this.eventService.updateEvent($event).then(updatedEvent => {
+      const index = this.events.findIndex(event => event.id === updatedEvent.id);
+      this.events[index] = updatedEvent;
+    });
   }
 }
