@@ -36,4 +36,12 @@ export class AppComponent {
       this.events[index] = updatedEvent;
     });
   }
+
+  addEvent($event: EventData) {
+    this.eventService.createEvent($event).then(
+      eventData => {
+        this.events.push(eventData);
+      }
+    )
+  }
 }

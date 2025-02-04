@@ -11,6 +11,6 @@
   } @else {
     <p>Wow! Such Empty</p>
   }
-  <app-add-event/>
+  <app-add-event (onAdd)="addEvent($event)"/>
   <router-outlet/>
 </div>
