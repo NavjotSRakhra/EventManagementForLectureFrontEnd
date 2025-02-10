@@ -1,16 +1,2 @@
 <app-header></app-header>
-<div>
-  @if (events.length != 0) {
-    <mat-grid-list cols="3" gutterSize="20px" rowHeight="150px" class="p-2 m-5">
-      @for (event of events; track event) {
-        <mat-grid-tile>
-          <app-event [event]="event" (onDelete)="deleteEvent($event)" (onEdit)="editEvent($event)"></app-event>
-        </mat-grid-tile>
-      }
-    </mat-grid-list>
-  } @else {
-    <p>Wow! Such Empty</p>
-  }
-  <app-add-event (onAdd)="addEvent($event)"/>
-  <router-outlet/>
-</div>
+<router-outlet/>

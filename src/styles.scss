@@ -6,6 +6,9 @@ html, body {
   @include mat.app-background();
   height: 100%;
 }
+.clickable {
+  cursor: pointer;
+}
 
 body {
   margin: 0;
