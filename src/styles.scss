@@ -4,7 +4,7 @@
 
 html, body {
   @include mat.app-background();
-  height: 100%;
+  width: 100%;
 }
 .clickable {
   cursor: pointer;
