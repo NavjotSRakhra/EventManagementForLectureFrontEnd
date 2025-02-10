@@ -1,15 +1,12 @@
 import {Component, inject} from '@angular/core';
 import {EventData} from '../../model/event-data';
 import {EventService} from '../../service/event.service';
-import {MatGridList, MatGridTile} from '@angular/material/grid-list';
 import {EventComponent} from '../event/event.component';
 import {AddEventComponent} from '../add-event/add-event.component';
 
 @Component({
   selector: 'app-home',
   imports: [
-    MatGridList,
-    MatGridTile,
     EventComponent,
     AddEventComponent
   ],

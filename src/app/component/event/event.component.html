@@ -1,15 +1,17 @@
 @if (isClickable) {
   <mat-card class="event clickable">
-    <mat-card-header [routerLink]="['/event', event().id]">
-      <mat-card-title>{{ event().title }}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content [routerLink]="['/event', event().id]">
-      {{ event().description }}
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button (click)="editClicked()">Edit</button>
-      <button mat-raised-button (click)="deleteClicked()">Delete</button>
-    </mat-card-actions>
+    <div class="material-card-content">
+      <div [routerLink]="['/event', event().id]" class="card-header">
+        {{ event().title }}
+      </div>
+      <div [routerLink]="['/event', event().id]" class="card-description">
+        {{ event().description }}
+      </div>
+      <div class="card-action">
+        <button mat-raised-button (click)="editClicked()" style="width: 100%">Edit</button>
+        <button mat-raised-button (click)="deleteClicked()" style="width: 100%">Delete</button>
+      </div>
+    </div>
   </mat-card>
 } @else {
   <mat-card class="event normalEvent">

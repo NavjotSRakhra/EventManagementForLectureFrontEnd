@@ -1,7 +1,38 @@
 .clickable {
-
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
 }
 
 .normalEvent {
+
+}
+
+.card-description {
+  text-wrap: pretty;
+  text-overflow: ellipsis;
+}
+
+.card-header {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.card-action {
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+
+.material-card-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
 }

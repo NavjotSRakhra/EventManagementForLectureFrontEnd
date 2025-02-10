@@ -1,11 +1,11 @@
 @if (events.length != 0) {
-  <mat-grid-list cols="3">
+  <div class="card-container">
     @for (event of events; track event) {
-      <mat-grid-tile>
+      <div class="card-content">
         <app-event [event]="event" (onDelete)="deleteEvent($event)" (onEdit)="editEvent($event)"></app-event>
-      </mat-grid-tile>
+      </div>
     }
-  </mat-grid-list>
+  </div>
 } @else {
   <p>Wow! Such Empty</p>
 }
