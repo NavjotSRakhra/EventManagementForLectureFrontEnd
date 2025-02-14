@@ -32,10 +32,8 @@ export class HomeComponent {
   }
 
   editEvent($event: EventData) {
-    this.eventService.updateEvent($event).then(updatedEvent => {
-      const index = this.events.findIndex(event => event.id === updatedEvent.id);
-      this.events[index] = updatedEvent;
-    });
+    const index = this.events.findIndex(event => event.id === $event.id);
+    this.events[index] = $event;
   }
 
   addEvent($event: EventData) {
