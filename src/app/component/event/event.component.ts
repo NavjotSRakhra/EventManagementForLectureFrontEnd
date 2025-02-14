@@ -56,7 +56,6 @@ export class EventComponent {
 
     let eventId: number;
     eventId = this.route.snapshot.params['id'];
-    console.log('eventId', eventId);
     if (eventId != undefined) {
       this.isClickable = false;
       this.eventService.getEventById(eventId)

@@ -1,22 +1,32 @@
-import {Injectable} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {EventData} from '../model/event-data';
+import {HttpStatusCode} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventService {
   eventUrl: string = 'api/event';
+  private router: Router = inject(Router);
+
   constructor() {
   }
 
   async getAllEvents(): Promise<EventData[]> {
-    const data = await fetch(this.eventUrl);
-    return await data.json() as EventData[];
+    const response = await fetch(this.eventUrl);
+
+    await this.handleRedirects(response);
+
+    return await response.json() as EventData[];
   }
 
   async getEventById(id: number): Promise<EventData> {
-    const data = await fetch(`${this.eventUrl}/${id}`);
-    return await data.json() as EventData;
+    const response = await fetch(`${this.eventUrl}/${id}`);
+
+    await this.handleRedirects(response);
+
+    return await response.json() as EventData;
   }
 
   async createEvent(data: EventData): Promise<EventData> {
@@ -27,6 +37,9 @@ export class EventService {
         'Content-Type': 'application/json'
       }
     });
+
+    await this.handleRedirects(response);
+
     return await response.json() as EventData;
   }
 
@@ -38,6 +51,9 @@ export class EventService {
         'Content-Type': 'application/json'
       }
     });
+
+    await this.handleRedirects(response);
+
     return await response.json() as EventData;
   }
 
@@ -45,6 +61,15 @@ export class EventService {
     const response = await fetch(`${this.eventUrl}/${id}`, {
       method: 'DELETE'
     });
+
+    await this.handleRedirects(response);
+
     return await response.json() as EventData;
+  }
+
+  async handleRedirects(data: Response) {
+    if (data.redirected) {
+      window.location.href = data.url
+    }
   }
 }

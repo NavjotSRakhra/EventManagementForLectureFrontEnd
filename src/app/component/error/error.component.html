@@ -1,0 +1,25 @@
+<div class="mat-card-container">
+  <mat-card appearance="raised">
+    <table>
+      <tr>
+        <td class="table-label">
+          Error UUID:
+        </td>
+        <td>
+          <pre><code class="error-uuid">{{ this.errorUuid }}</code></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class="table-label">
+          Error message:
+        </td>
+        <td>
+          <pre><code class="error-uuid">{{ this.errorMessage }}</code></pre>
+        </td>
+      </tr>
+    </table>
+    <label>
+    </label>
+    <button mat-raised-button class="home-button" [routerLink]="['']">Return to the homepage</button>
+  </mat-card>
+</div>
