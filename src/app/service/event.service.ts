@@ -71,5 +71,8 @@ export class EventService {
     if (data.redirected) {
       window.location.href = data.url
     }
+    if (data.status == HttpStatusCode.NotFound){
+      await this.router.navigate(['/404']);
+    }
   }
 }
